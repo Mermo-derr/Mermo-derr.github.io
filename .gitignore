@@ -1,0 +1,7 @@
+﻿build/
+node_modules/
+dist/
+resources/
+reel_1.mp4
+
+CV_*.pdf

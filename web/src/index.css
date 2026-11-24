@@ -1,0 +1,85 @@
+﻿@import "tailwindcss";
+
+/* Tokens de diseño — estética "pergamino japonés" (referencia: Dribbble
+   "Japanese history // Website", BL/S). Papel beige, tinta negra, acento rojo. */
+@theme {
+  --color-paper: #EDE6D6;
+  --color-paper-dark: #E0D7C3;
+  --color-ink: #141210;
+  --color-ink-soft: #4A4540;
+  --color-red: #C8102E;
+
+  --font-display: "Shippori Mincho B1", "Shippori Mincho", serif;
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+
+  /* Movimiento: tinta que entra suave y se asienta; salidas secas */
+  --ease-ink: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snap: cubic-bezier(0.7, 0, 0.84, 0);
+  --duration-fast: 300ms;
+  --duration-base: 600ms;
+}
+
+html { color-scheme: light; scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Textura de papel: grano (SVG noise) + pliegues verticales tenues */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.3 0 0 0 0 0.22 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(90deg, transparent calc(33.33% - 1px), rgb(0 0 0 / .045) 33.33%, transparent calc(33.33% + 2px)),
+    linear-gradient(90deg, transparent calc(66.66% - 1px), rgb(0 0 0 / .045) 66.66%, transparent calc(66.66% + 2px)),
+    linear-gradient(0deg, transparent calc(50% - 1px), rgb(0 0 0 / .035) 50%, transparent calc(50% + 2px));
+}
+
+@layer components {
+  /* Etiqueta chica en mayúsculas, como las anotaciones del póster */
+  .label { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; }
+  /* Texto japonés en vertical */
+  .vertical-jp { writing-mode: vertical-rl; font-family: var(--font-display); letter-spacing: .3em; }
+  /* Sello hanko */
+  .hanko {
+    display: inline-grid; place-items: center; padding: .35rem;
+    border: 3px solid var(--color-red); border-radius: 6px; color: var(--color-red);
+    font-family: var(--font-display); font-weight: 800; line-height: 1;
+    mix-blend-mode: multiply; opacity: .85;
+  }
+  /* Cinta negra con texto repetido */
+  .tape {
+    background: var(--color-ink); color: var(--color-paper);
+    white-space: nowrap; overflow: hidden; font-size: .8rem; letter-spacing: .2em; text-transform: uppercase;
+    padding: .55rem 0;
+  }
+  /* Número en círculo */
+  .num-circle {
+    display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 999px;
+    background: var(--color-red); color: var(--color-paper); font-weight: 700; font-size: .8rem;
+  }
+  /* Botones: tinta llena y contorno fino con esquinas marcadas */
+  .btn-ink, .btn-line {
+    position: relative; display: inline-flex; align-items: center; gap: .6rem;
+    padding: .8rem 1.4rem; font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    transition: background-color var(--duration-fast) var(--ease-ink), color var(--duration-fast) var(--ease-ink);
+  }
+  .btn-ink { background: var(--color-ink); color: var(--color-paper); }
+  .btn-ink:hover { background: var(--color-red); }
+  .btn-line { border: 1px solid var(--color-ink); }
+  .btn-line:hover { background: var(--color-ink); color: var(--color-paper); }
+  .btn-line::before, .btn-line::after {
+    content: ""; position: absolute; width: 5px; height: 5px; background: var(--color-ink);
+  }
+  .btn-line::before { top: -3px; left: -3px; }
+  .btn-line::after { bottom: -3px; right: -3px; }
+}
+
+:focus-visible { outline: 2px solid var(--color-red); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
