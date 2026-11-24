@@ -27,11 +27,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Textura de papel: grano (SVG noise) + pliegues verticales tenues */
+/* Textura de papel: grano (PNG pre-renderizado, más barato que feTurbulence) + pliegues verticales tenues */
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.3 0 0 0 0 0.22 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    url("/grain.png"),
     linear-gradient(90deg, transparent calc(33.33% - 1px), rgb(0 0 0 / .045) 33.33%, transparent calc(33.33% + 2px)),
     linear-gradient(90deg, transparent calc(66.66% - 1px), rgb(0 0 0 / .045) 66.66%, transparent calc(66.66% + 2px)),
     linear-gradient(0deg, transparent calc(50% - 1px), rgb(0 0 0 / .035) 50%, transparent calc(50% + 2px));

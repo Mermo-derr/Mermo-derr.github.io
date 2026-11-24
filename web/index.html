@@ -22,10 +22,12 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Fuentes sin bloquear el render: se ve primero la fuente de sistema (display=swap) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" /></noscript>
+    <!-- Fuentes sin bloquear el render (display=swap). Shippori se pide solo con los
+         caracteres que usa la web (text=): si se agregan kanji nuevos, regenerar con
+         node scripts/fonts.mjs -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&amp;display=swap&amp;text=%20!%22%23%24%25%26%27()*%2B%2C-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~%C2%A9%C2%B0%C2%B7%C2%BF%C3%9A%C3%A1%C3%A9%C3%AD%C3%B1%C3%B3%C3%BA%E2%80%94%E2%80%99%E2%80%B2%E2%86%92%E2%86%97%E2%94%94%E2%97%8E%E2%9C%A6%E3%81%84%E3%81%86%E3%81%88%E3%81%8B%E3%81%8D%E3%81%8E%E3%81%8F%E3%81%93%E3%81%95%E3%81%97%E3%81%98%E3%81%9E%E3%81%A4%E3%81%A8%E3%81%B2%E3%82%85%E3%82%87%E3%82%89%E3%82%8C%E3%82%93%E3%82%A2%E3%83%A1%E3%83%A2%E3%83%A9%E3%83%AA%E3%83%AB%E3%83%B3%E3%83%BB%E3%83%BC%E4%BB%8B%E4%BD%9C%E5%83%8F%E5%89%B5%E5%8B%95%E5%8C%A0%E5%93%81%E5%B7%B1%E6%84%8F%E6%8A%80%E6%97%A5%E6%98%A0%E6%9C%AC%E7%99%BA%E7%9A%84%E7%B4%B9%E7%B5%A1%E8%80%85%E8%87%AA%E8%A1%93%E9%80%A0%E9%80%A3%E9%96%8B%E9%9B%86%EF%BB%BF" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" /></noscript>
   </head>
   <body>
     <div id="root"></div>
