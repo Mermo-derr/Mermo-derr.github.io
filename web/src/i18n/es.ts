@@ -19,7 +19,7 @@ export const es = {
   },
   hero: {
     role: 'Creative Developer',
-    tagline: 'Desarrollo web con lógica de backend y ojo de diseñador multimedia. Código y animación.',
+    tagline: 'Desarrollo web con lógica de backend y criterio de diseñador multimedia.',
     ctaProjects: 'Ver proyectos',
     ctaContact: 'Contacto',
   },
