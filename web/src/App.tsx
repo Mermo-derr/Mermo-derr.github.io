@@ -1,4 +1,7 @@
-﻿import { I18nProvider, useI18n } from './i18n'
+﻿import { useCallback, useRef, useState } from 'react'
+import { I18nProvider, useI18n } from './i18n'
+import { Intro } from './fx/Intro'
+import { useReveal } from './fx/useReveal'
 import { Nav } from './sections/Nav'
 import { Hero } from './sections/Hero'
 import { About } from './sections/About'
@@ -11,21 +14,29 @@ const YEAR = new Date().getFullYear()
 
 function Page() {
   const { t } = useI18n()
+  const scope = useRef<HTMLDivElement>(null)
+  const [ready, setReady] = useState(false)
+  const reveal = useCallback(() => setReady(true), [])
+  useReveal(scope, ready)
+
   return (
     <>
-      <Nav />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Motion />
-        <Contact />
-      </main>
-      {/* Varilla inferior del pergamino */}
-      <footer className="bg-ink text-paper/70 label py-6 text-center shadow-[0_-4px_0_0_var(--color-paper-dark)]">
-        © {YEAR} Alan Mermolia <span className="text-red mx-2">✦</span> {t.footer}
-      </footer>
+      <Intro onReveal={reveal} />
+      <div ref={scope}>
+        <Nav />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Motion />
+          <Contact />
+        </main>
+        {/* Varilla inferior del pergamino */}
+        <footer className="bg-ink text-paper/70 label py-6 text-center shadow-[0_-4px_0_0_var(--color-paper-dark)]">
+          © {YEAR} Alan Mermolia <span className="text-red mx-2">✦</span> {t.footer}
+        </footer>
+      </div>
     </>
   )
 }

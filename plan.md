@@ -149,13 +149,23 @@ Comandos (desde `web/`): `npm run dev` (puerto 5173), `npm run build` y `npm run
         cuadro "ES TU TURNO DE PICK", mostrada como ventana de terminal
 
 ### Fase 3 — Animaciones (GSAP + CSS + SVG)
-- [ ] Intro "pergamino que se desenrolla" (§6) con "Saltar", una vez por sesión
-- [ ] Entradas de sección con ScrollTrigger: líneas, título con trazo, número sellado
-- [ ] Kanji verticales con stagger; hanko con golpe de sello
-- [ ] Cinta del hero en marquee continuo
-- [ ] Hover de tarjetas de proyecto y botones
-- [ ] Variante `prefers-reduced-motion` de cada efecto
-- [ ] Revisar en Chrome cada efecto, en desktop y en móvil
+Implementación: `src/fx/` → `gsap.ts` (registro de plugins), `Chars.tsx`
+(separa kanji en spans), `Intro.tsx`, `useReveal.ts` (todas las entradas por
+atributos `data-hero`, `data-reveal`, `data-part`; ver comentario del archivo).
+CSS: `.marquee` y `.sun` en `index.css`.
+
+- [x] Intro "pergamino que se desenrolla" (§6) con "Saltar", una vez por sesión
+      (`sessionStorage.introSeen`; para volver a verla, pestaña nueva)
+- [x] Hero: nombre revelado por líneas, textos, columna negra que baja, cinta y sello
+- [x] Entradas de sección con ScrollTrigger: líneas, título con trazo, número sellado
+- [x] Kanji verticales con stagger; hanko con golpe de sello
+- [x] Cinta del hero en marquee continuo (CSS); sol rojo con pulso lento
+- [x] Hover de tarjetas de proyecto y botones (CSS)
+- [x] `prefers-reduced-motion`: sin intro, sin GSAP (todo visible), sin marquee ni pulso
+- [x] Revisado en Chrome en desktop
+- [ ] Revisar en móvil (pasa a la Fase 5)
+- Bug resuelto: el bloqueo de scroll de la intro quedaba puesto si React
+  re-ejecutaba el efecto (StrictMode/HMR). Ahora depende de `gone`
 
 ### Fase 4 — Motion (video)
 

@@ -6,6 +6,9 @@ export const en: Dict = {
     title: 'Alan Mermolia — Creative Developer',
     description: 'Web developer and multimedia designer. Portfolio of development, design and animation work.',
   },
+  intro: {
+    skip: 'Skip',
+  },
   nav: {
     about: 'About',
     skills: 'Skills',

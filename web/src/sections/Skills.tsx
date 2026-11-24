@@ -1,3 +1,4 @@
+import { Chars } from '../fx/Chars'
 import { skills } from '../data'
 import { useI18n } from '../i18n'
 import { SectionTitle } from './SectionTitle'
@@ -15,11 +16,11 @@ export function Skills() {
       <SectionTitle n="02" title={t.skills.title} kanji="技術" reading="ぎじゅつ" />
       <div className="grid gap-8 md:grid-cols-2">
         {blocks.map((b) => (
-          <div key={b.title} className={`border-ink relative border p-8 ${b.dark ? 'bg-ink text-paper' : ''}`}>
+          <div key={b.title} data-reveal="item" className={`border-ink relative border p-8 ${b.dark ? 'bg-ink text-paper' : ''}`}>
             <div className="mb-8 flex items-start justify-between">
               <h3 className="font-display text-3xl font-extrabold uppercase">{b.title}</h3>
-              <span aria-hidden="true" className="vertical-jp text-red text-2xl font-extrabold">
-                {b.kanji}
+              <span aria-hidden="true" data-reveal="kanji" className="vertical-jp text-red text-2xl font-extrabold">
+                <Chars text={b.kanji} />
               </span>
             </div>
             <div className="space-y-6">

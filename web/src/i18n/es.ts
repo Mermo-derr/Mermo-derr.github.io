@@ -4,6 +4,9 @@ export const es = {
     title: 'Alan Mermolia — Creative Developer',
     description: 'Desarrollador web y diseñador multimedia. Portfolio de desarrollo, diseño y animación.',
   },
+  intro: {
+    skip: 'Saltar',
+  },
   nav: {
     about: 'Sobre mí',
     skills: 'Habilidades',

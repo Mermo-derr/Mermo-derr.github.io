@@ -77,9 +77,19 @@ body::before {
   .btn-line::after { bottom: -3px; right: -3px; }
 }
 
+/* Cinta: dos copias del texto que se desplazan sin corte */
+.marquee { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+.marquee > span { padding-right: .5em; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Sol rojo: pulso lento, como tinta que respira */
+.sun { animation: sun 6s var(--ease-ink) infinite; }
+@keyframes sun { 50% { transform: translateY(0.02em) scale(0.92) rotate(8deg); } }
+
 :focus-visible { outline: 2px solid var(--color-red); outline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
+  .marquee, .sun { animation: none; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }

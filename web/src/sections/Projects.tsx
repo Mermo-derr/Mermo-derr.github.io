@@ -10,7 +10,7 @@ export function Projects() {
       <SectionTitle n="03" title={t.projects.title} kanji="作品" reading="さくひん" />
       <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((p, i) => (
-          <li key={p.id} className="group border-ink bg-paper flex flex-col border p-3">
+          <li key={p.id} data-reveal="item" className="group border-ink bg-paper flex flex-col border p-3">
             {/* Anotación superior de la tarjeta */}
             <div className="label mb-2 flex justify-between">
               <span>{String(i + 1).padStart(2, '0')} / P{i + 1}</span>

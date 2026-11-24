@@ -15,14 +15,14 @@ export function Contact() {
       <SectionTitle n="05" title={t.contact.title} kanji="連絡" reading="れんらく" />
       <div className="grid items-start gap-10 md:grid-cols-[1fr_2fr]">
         <div className="relative">
-          <p className="font-display text-2xl leading-snug font-bold">{t.contact.text}</p>
-          <span aria-hidden="true" className="hanko mt-8 rotate-[6deg] text-xl">
+          <p data-reveal="item" className="font-display text-2xl leading-snug font-bold">{t.contact.text}</p>
+          <span aria-hidden="true" data-reveal="stamp" className="hanko mt-8 rotate-[6deg] text-xl">
             <span className="vertical-jp tracking-normal">連絡</span>
           </span>
         </div>
         <ul className="border-ink divide-ink border-y">
           {links.map((l, i) => (
-            <li key={l.label} className={i > 0 ? 'border-ink/20 border-t' : ''}>
+            <li key={l.label} data-reveal="item" className={i > 0 ? 'border-ink/20 border-t' : ''}>
               <a
                 href={l.href}
                 target={l.href.startsWith('http') ? '_blank' : undefined}
