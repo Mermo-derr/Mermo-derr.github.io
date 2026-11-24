@@ -11,7 +11,7 @@ export function SectionTitle({ n, title, kanji, reading }: Props) {
       <span data-part="num" className="num-circle shrink-0">
         {n}
       </span>
-      <h2 data-part="title" className="font-display text-4xl font-extrabold tracking-tight uppercase md:text-6xl">
+      <h2 data-part="title" className="font-display text-[clamp(1.75rem,8.5vw,2.25rem)] font-extrabold tracking-tight uppercase sm:text-4xl md:text-6xl">
         {title}
       </h2>
       <span className="label text-red hidden pb-2 sm:inline">({reading})</span>

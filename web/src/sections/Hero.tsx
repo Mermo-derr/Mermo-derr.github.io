@@ -25,7 +25,7 @@ export function Hero() {
           <h1
             data-hero="name"
             aria-label="Alan Mermolia"
-            className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight uppercase sm:text-8xl lg:text-9xl"
+            className="font-display text-[clamp(2.5rem,13.5vw,4rem)] leading-[0.9] font-extrabold tracking-tight whitespace-nowrap uppercase sm:text-8xl lg:text-9xl"
           >
             {/* Cada línea en una máscara para revelarla de abajo arriba */}
             <span aria-hidden="true" className="block overflow-hidden pb-[0.06em]">

@@ -14,6 +14,8 @@ export const es = {
     motion: 'Motion',
     contact: 'Contacto',
     langLabel: 'Cambiar idioma',
+    menu: 'Menú',
+    skipToContent: 'Saltar al contenido',
   },
   hero: {
     role: 'Creative Developer',
@@ -50,6 +52,7 @@ export const es = {
     title: 'Proyectos',
     code: 'Código',
     site: 'Sitio',
+    newTab: 'se abre en una pestaña nueva',
     wip: 'En desarrollo',
     items: {
       callia: 'Sitio corporativo con CMS y catálogo dinámico de productos, desarrollado en la agencia Encender Comunicación.',
@@ -65,6 +68,7 @@ export const es = {
     reel: 'Reel',
     clips: 'Piezas',
     hint: 'Pasa el cursor sobre una pieza para reproducirla.',
+    hintTouch: 'Las piezas se reproducen solas al aparecer en pantalla.',
   },
   contact: {
     title: 'Contacto',

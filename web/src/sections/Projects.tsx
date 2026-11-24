@@ -36,13 +36,13 @@ export function Projects() {
               <p className="label text-red mt-4">{p.stack.join(' / ')}</p>
               <div className="border-ink/20 mt-4 flex gap-5 border-t pt-3 text-sm font-bold uppercase">
                 {p.site && (
-                  <a href={p.site} target="_blank" rel="noreferrer" className="hover:text-red">
-                    {t.projects.site} ↗
+                  <a href={p.site} target="_blank" rel="noreferrer" className="hover:text-red" aria-label={`${t.projects.site}: ${p.name} (${t.projects.newTab})`}>
+                    {t.projects.site} <span aria-hidden="true">↗</span>
                   </a>
                 )}
                 {p.repo && (
-                  <a href={p.repo} target="_blank" rel="noreferrer" className="hover:text-red">
-                    {t.projects.code} ↗
+                  <a href={p.repo} target="_blank" rel="noreferrer" className="hover:text-red" aria-label={`${t.projects.code}: ${p.name} (${t.projects.newTab})`}>
+                    {t.projects.code} <span aria-hidden="true">↗</span>
                   </a>
                 )}
               </div>

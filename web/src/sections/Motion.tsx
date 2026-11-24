@@ -103,7 +103,10 @@ export function Motion() {
               </ul>
             )}
           </div>
-          <p className="label text-ink-soft mt-4">{t.motion.hint}</p>
+          <p className="label text-ink-soft mt-4">
+            <span className="[@media(hover:none)]:hidden">{t.motion.hint}</span>
+            <span className="hidden [@media(hover:none)]:inline">{t.motion.hintTouch}</span>
+          </p>
         </div>
       </div>
     </section>

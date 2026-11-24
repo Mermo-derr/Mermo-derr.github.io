@@ -16,6 +16,8 @@ export const en: Dict = {
     motion: 'Motion',
     contact: 'Contact',
     langLabel: 'Change language',
+    menu: 'Menu',
+    skipToContent: 'Skip to content',
   },
   hero: {
     role: 'Creative Developer',
@@ -52,6 +54,7 @@ export const en: Dict = {
     title: 'Projects',
     code: 'Code',
     site: 'Website',
+    newTab: 'opens in a new tab',
     wip: 'In progress',
     items: {
       callia: 'Corporate website with a CMS and a dynamic product catalog, built at the agency Encender Comunicación.',
@@ -67,6 +70,7 @@ export const en: Dict = {
     reel: 'Reel',
     clips: 'Pieces',
     hint: 'Hover over a piece to play it.',
+    hintTouch: 'Pieces play on their own when they come into view.',
   },
   contact: {
     title: 'Contact',

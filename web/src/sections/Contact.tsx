@@ -27,10 +27,10 @@ export function Contact() {
                 href={l.href}
                 target={l.href.startsWith('http') ? '_blank' : undefined}
                 rel="noreferrer"
-                className="group hover:bg-ink hover:text-paper flex items-baseline justify-between gap-4 px-2 py-5 transition-colors"
+                className="group hover:bg-ink hover:text-paper flex flex-col gap-1 px-2 py-5 transition-colors sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
               >
                 <span className="font-display text-3xl font-extrabold uppercase">{l.label}</span>
-                <span className="label group-hover:text-paper text-ink-soft break-all">{l.text} ↗</span>
+                <span className="label group-hover:text-paper text-ink-soft break-words">{l.text} <span aria-hidden="true">↗</span></span>
               </a>
             </li>
           ))}

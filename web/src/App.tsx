@@ -23,8 +23,11 @@ function Page() {
     <>
       <Intro onReveal={reveal} />
       <div ref={scope}>
+        <a href="#main" className="label bg-red text-paper fixed top-2 left-2 z-[60] -translate-y-20 px-4 py-2 focus:translate-y-0">
+          {t.nav.skipToContent}
+        </a>
         <Nav />
-        <main>
+        <main id="main">
           <Hero />
           <About />
           <Skills />
