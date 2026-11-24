@@ -50,6 +50,7 @@ export const projects: Project[] = [
     name: 'Multi-user Memory Chat',
     stack: ['LangGraph', 'OpenAI', 'ChromaDB', 'Streamlit'],
     repo: 'https://github.com/Mermo-derr/multiuser_chat_system',
+    image: '/img/multiuser-chat.webp',
   },
   {
     id: 'draftAdvisor',

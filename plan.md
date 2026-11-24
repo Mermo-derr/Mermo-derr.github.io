@@ -136,17 +136,15 @@ Comandos (desde `web/`): `npm run dev` (puerto 5173), `npm run build` y `npm run
 - [x] Textos ES/EN de todas las secciones
 - [ ] Alan revisa los textos en inglés y el "Sobre mí"
 - [x] Leer los proyectos y fijar el orden (§3)
-- [ ] Capturas → WebP en `web/public/img/` (con `sharp`, 1280 px de ancho):
+- [x] Capturas → WebP en `web/public/img/` (con `sharp`, 1280 px de ancho):
   - [x] Bodegas Callia (`callia.webp`, web pública, popup cerrado)
   - [x] River Plate (`river.webp`, desde carp-dev-fe.encendermedia.com)
   - [x] CV Analyzer (`cv-analyzer.webp`, resultado 94 %)
   - [x] Legal RAG (`legal-rag.webp`, pregunta sobre la plaza de garaje con un
         fragmento desplegado que muestra fuente y página)
-  - [ ] Multi-user Chat: **bloqueado, la `OPENAI_API_KEY` del entorno está
-        vencida (401)**. El entorno ya está listo en el scratchpad
-        (`chat-venv`); hace falta que Alan renueve la clave. Plan de captura:
-        usuario "sofia", un chat con datos personales y otro chat nuevo
-        preguntando "¿qué recuerdas de mí?" para mostrar la memoria entre chats
+  - [x] Multi-user Chat (`multiuser-chat.webp`): usuario "sofia"; un chat con
+        sus datos y otro chat nuevo donde recuerda que es diseñadora UX y
+        aprende React (memoria entre chats)
   - [x] Draft Advisor (`draft-advisor.webp`): salida real de `--replay` con el
         cuadro "ES TU TURNO DE PICK", mostrada como ventana de terminal
 
