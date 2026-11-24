@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Chars } from '../fx/Chars'
+import { useNear } from '../fx/useNear'
 import { clips, reel, type Clip } from '../data'
 import { useI18n } from '../i18n'
 import { SectionTitle } from './SectionTitle'
@@ -8,6 +9,7 @@ import { SectionTitle } from './SectionTitle'
 // En pantallas táctiles: mientras está visible. Con reduce-motion: solo al pasar el cursor.
 function ClipCard({ clip, n }: { clip: Clip; n: number }) {
   const video = useRef<HTMLVideoElement>(null)
+  const near = useNear(video)
 
   useEffect(() => {
     const v = video.current
@@ -39,7 +41,7 @@ function ClipCard({ clip, n }: { clip: Clip; n: number }) {
           loop
           playsInline
           preload="none"
-          poster={`/video/${clip.file}.webp`}
+          poster={near ? `/video/${clip.file}.webp` : undefined}
           aria-label={`${clip.title} — ${clip.kind}`}
           className="size-full object-cover grayscale-[40%] transition duration-500 group-hover:grayscale-0"
         >
@@ -60,6 +62,8 @@ function ClipCard({ clip, n }: { clip: Clip; n: number }) {
 
 export function Motion() {
   const { t } = useI18n()
+  const reelRef = useRef<HTMLVideoElement>(null)
+  const reelNear = useNear(reelRef)
   const horizontal = clips.filter((c) => !c.vertical)
   const vertical = clips.filter((c) => c.vertical)
 
@@ -82,7 +86,12 @@ export function Motion() {
               <span className="text-paper/60 hidden sm:inline">{reel.tools}</span>
               <span>{reel.duration}</span>
             </div>
-            <video controls preload="none" playsInline poster={`/video/${reel.file}-poster.webp`} className="aspect-video w-full bg-black">
+            <video
+              ref={reelRef}
+              controls
+              preload="none"
+              playsInline
+              poster={reelNear ? `/video/${reel.file}-poster.webp` : undefined} className="aspect-video w-full bg-black">
               <source src={`/video/${reel.file}.mp4`} type="video/mp4" />
             </video>
           </div>
