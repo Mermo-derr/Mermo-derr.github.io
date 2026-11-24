@@ -21,7 +21,7 @@ export const en: Dict = {
   },
   hero: {
     role: 'Creative Developer',
-    tagline: 'Web development with backend logic and a multimedia designer’s eye. Code and animation with opening-sequence energy.',
+    tagline: 'Web development with backend logic and a multimedia designer’s eye. Code and animation.',
     ctaProjects: 'See projects',
     ctaContact: 'Contact',
   },
