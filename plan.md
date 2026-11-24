@@ -212,9 +212,11 @@ Salida en `web/public/video/` (comandos ffmpeg: ver Registro).
   `node scripts/fonts.mjs` desde `web/`**. Ambas fuentes cargan sin bloquear
 
 ### Fase 6 — Deploy
-- [ ] Crear el repo `Mermo-derr.github.io` (confirmar con Alan)
-- [ ] GitHub Action de build de Vite → Pages
-- [ ] Probar el sitio publicado en desktop y en móvil
+- [x] Crear el repo público `Mermo-derr/Mermo-derr.github.io` (con `gh`; Pages
+      en modo "GitHub Actions")
+- [x] GitHub Action de build de Vite → Pages (`.github/workflows/pages.yml`:
+      cada push a `main` compila `web/` y publica `web/dist`)
+- [x] Probar el sitio publicado en desktop y en móvil → **https://mermo-derr.github.io/**
 
 ## 8. Protocolo de iteración
 
@@ -249,3 +251,6 @@ Salida en `web/public/video/` (comandos ffmpeg: ver Registro).
   vez de feTurbulence y pósters diferidos. Para llegar a 90 haría falta SSG
   (prerender del HTML); no se hizo por el costo (la intro y la detección de
   idioma complican la hidratación). Se puede retomar si importa.
+- 2026-11-24 — Fase 6: publicado en https://mermo-derr.github.io/. `gh` se
+  instaló con winget y Alan inició sesión (con el scope `workflow`, necesario
+  para pushear el workflow). Para publicar cambios basta con `git push`.
