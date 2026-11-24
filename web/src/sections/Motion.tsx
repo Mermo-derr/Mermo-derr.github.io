@@ -88,17 +88,20 @@ export function Motion() {
           </div>
 
           <h3 className="label text-red mb-4">({t.motion.clips})</h3>
-          <div className="grid items-start gap-4 lg:grid-cols-[2fr_1fr]">
+          {/* Horizontales en grilla; si hay verticales (9:16), van en una columna al lado */}
+          <div className={`grid items-start gap-4 ${vertical.length ? 'lg:grid-cols-[2fr_1fr]' : ''}`}>
             <ul className="grid gap-4 sm:grid-cols-2">
               {horizontal.map((c) => (
                 <ClipCard key={c.file} clip={c} n={clips.indexOf(c) + 1} />
               ))}
             </ul>
-            <ul className="grid grid-cols-2 gap-4">
-              {vertical.map((c) => (
-                <ClipCard key={c.file} clip={c} n={clips.indexOf(c) + 1} />
-              ))}
-            </ul>
+            {vertical.length > 0 && (
+              <ul className="grid grid-cols-2 gap-4">
+                {vertical.map((c) => (
+                  <ClipCard key={c.file} clip={c} n={clips.indexOf(c) + 1} />
+                ))}
+              </ul>
+            )}
           </div>
           <p className="label text-ink-soft mt-4">{t.motion.hint}</p>
         </div>

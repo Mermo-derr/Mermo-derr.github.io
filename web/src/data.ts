@@ -85,8 +85,6 @@ export const clips: Clip[] = [
   { file: 'gm-publicidad', title: 'Grupo Marquez', kind: 'Motion graphics' },
   { file: 'intro-lngaming', title: 'LNGaming', kind: 'Intro' },
   { file: 'intro-soyfac', title: 'Soyfac', kind: 'Intro' },
-  { file: 'soyfac-2', title: 'Soyfac · Caras', kind: 'Social', vertical: true },
-  { file: 'soyfac-1', title: 'Soyfac', kind: 'Social', vertical: true },
 ]
 
 export const reel = { file: 'reel', duration: '0:39', tools: 'After Effects · Premiere · Blender' }

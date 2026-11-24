@@ -62,7 +62,7 @@ Excluidos: Philip Morris como proyecto (sin capturas), CoderHouse,
 **Motion (sección separada):** reel (`resources/video/reel_1.mp4`, 64 MB →
 unos 10–15 MB; si no encaja con la estética, queda fuera) y clips en bucle sin
 sonido: `GM_PUBLICIDAD2`, `intro_LNGaming`, `intro_soyfac`,
-`Liga Box Animacion 3D`, `soyfac1`, `soyfac2`.
+`Liga Box Animacion 3D`. (Los verticales `soyfac1` y `soyfac2` los quitó Alan.)
 
 **Contacto:** mermolia.alan@gmail.com ·
 https://www.linkedin.com/in/alan-mermolia/ · https://github.com/Mermo-derr
@@ -183,7 +183,8 @@ Salida en `web/public/video/` (comandos ffmpeg: ver Registro).
 - [x] Clips (6 s máx., sin audio, 720p; verticales a 540 de ancho): WebM VP9
       (CRF 38) + MP4 H.264 (CRF 27) + póster WebP. 0,1–0,6 MB cada uno.
       GM Publicidad desde el segundo 2; el resto desde el inicio
-- [x] Galería: 4 horizontales en 2×2 y 2 verticales al lado; reproducción al
+- [x] Galería: 4 horizontales en 2×2 (los 2 verticales se quitaron; el
+      componente sigue admitiendo 9:16 si se agregan); reproducción al
       pasar el cursor (táctil: al estar visible), `preload="none"`, datos en
       `data.ts` (`clips`, `reel`)
 - Nota: el reel muestra el logo de Overwatch (trabajo de fan) y la firma "Derrha"
