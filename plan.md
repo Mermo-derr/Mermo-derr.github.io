@@ -112,8 +112,8 @@ Todo se mueve como tinta y papel, nunca como cómic:
 ## 7. Fases
 
 ### Fase 0 — Validación técnica
-- [ ] Instalar ffmpeg (bloqueado por permisos: lo instala Alan con
-      `winget install --id Gyan.FFmpeg -e`)
+- [x] Instalar ffmpeg 9.1 (`winget install --id Gyan.FFmpeg -e`). En shells
+      viejos, recargar PATH: `$env:Path = [Environment]::GetEnvironmentVariable('Path','User') + ';' + $env:Path`
 - [x] `rive login` y `rive whoami` (ya estaba logueado, workspace "Portfolio")
 - [x] Escena mínima en Rive → `--publish` → incrustarla en Vite y comprobar la
       marca de agua en plan Free
@@ -160,6 +160,12 @@ Comandos (desde `web/`): `npm run dev` (puerto 5173), `npm run build` y `npm run
 - [ ] Revisar en Chrome cada efecto, en desktop y en móvil
 
 ### Fase 4 — Motion (video)
+
+Fuentes (todas H.264 + AAC): reel 39 s 1080p 64 MB · GM Publicidad 20 s 1080p ·
+LNGaming 5,6 s 1080p · Soyfac intro 5 s 1080p · Liga Box 3D 9,6 s 1080p 57 MB ·
+**soyfac1 (5 s) y soyfac2 (15 s) son verticales 1126×2008**: la galería tiene
+que admitir clips 9:16 además de 16:9.
+
 - [ ] Reel: H.264, 1080p (o 720p), objetivo de 10–15 MB, más un póster WebP.
       Revisar si encaja con la estética
 - [ ] Clips: fragmentos de 4–6 s en bucle sin audio, WebM + MP4, menos de 3 MB
