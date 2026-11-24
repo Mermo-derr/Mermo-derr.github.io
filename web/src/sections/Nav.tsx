@@ -20,7 +20,7 @@ export function Nav() {
     <nav className="bg-ink text-paper fixed inset-x-0 top-0 z-50 shadow-[0_4px_0_0_var(--color-paper-dark)]">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-6">
         <a href="#top" className="flex items-center gap-2" aria-label="Alan Mermolia">
-          <span className="bg-red grid size-7 place-items-center rounded-full font-display text-sm font-extrabold">A</span>
+          <span aria-hidden="true" className="bg-red grid size-7 place-items-center rounded-full font-display text-sm font-extrabold">A</span>
           <span className="label hidden sm:inline">Mermolia</span>
         </a>
         <ul className="label ml-auto hidden gap-6 md:flex">

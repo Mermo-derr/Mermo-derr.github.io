@@ -163,7 +163,7 @@ CSS: `.marquee` y `.sun` en `index.css`.
 - [x] Hover de tarjetas de proyecto y botones (CSS)
 - [x] `prefers-reduced-motion`: sin intro, sin GSAP (todo visible), sin marquee ni pulso
 - [x] Revisado en Chrome en desktop
-- [ ] Revisar en móvil (pasa a la Fase 5)
+- [x] Revisar en móvil (hecho en la Fase 5)
 - Bug resuelto: el bloqueo de scroll de la intro quedaba puesto si React
   re-ejecutaba el efecto (StrictMode/HMR). Ahora depende de `gone`
 
@@ -190,11 +190,26 @@ Salida en `web/public/video/` (comandos ffmpeg: ver Registro).
 - Nota: el reel muestra el logo de Overwatch (trabajo de fan) y la firma "Derrha"
 
 ### Fase 5 — Pulido
-- [ ] Responsive (360 px, 768 px, 1280 px y más)
-- [ ] `prefers-reduced-motion`, foco visible, `alt` y `aria`, contraste
-- [ ] Lighthouse móvil con rendimiento y accesibilidad de 90 o más; carga
-      diferida de los videos
-- [ ] Meta tags, Open Graph (imagen social) y favicon (el sol rojo)
+- [x] Responsive (360 px, 768 px, 1280 px y más): sin desborde horizontal.
+      Nombre del hero y títulos de sección con `clamp()` en móvil; contacto
+      apilado en móvil; **menú móvil** desplegable (Esc lo cierra)
+- [x] `prefers-reduced-motion`, foco visible, `alt` y `aria`, contraste:
+      enlace "Saltar al contenido", enlaces de proyecto con nombre accesible,
+      aviso de Motion distinto en táctil (`hintTouch`)
+- [x] Lighthouse (build de producción con `vite preview`):
+      **móvil** rendimiento 82–83, accesibilidad 100, buenas prácticas 100,
+      SEO 100 · **escritorio** 96 / 100 / 100 / 100. Medido sin throttling:
+      FCP 0,4 s, LCP 1,5 s. El 90 en móvil no se alcanza sin prerenderizar
+      el HTML (SSG): el LCP es el sello de la intro y depende del JS (ver Registro)
+- [x] Carga diferida: pósters de video con `useNear` (IntersectionObserver),
+      capturas con `srcset` 640/1280 (`*-640.webp`), videos `preload="none"`
+- [x] Meta tags, Open Graph (`public/og.jpg` 1200×630, generado con
+      `node scripts/og.mjs`), favicon SVG del sol rojo, `apple-touch-icon.png`
+      y `robots.txt`. Las URL absolutas asumen `https://mermo-derr.github.io/`
+      (cambiarlas si el repo de la Fase 6 es otro)
+- Fuentes: Shippori se pide a Google solo con los caracteres usados
+  (`text=`). **Si se agregan textos con kanji o acentos nuevos, correr
+  `node scripts/fonts.mjs` desde `web/`**. Ambas fuentes cargan sin bloquear
 
 ### Fase 6 — Deploy
 - [ ] Crear el repo `Mermo-derr.github.io` (confirmar con Alan)
@@ -229,3 +244,8 @@ Salida en `web/public/video/` (comandos ffmpeg: ver Registro).
   clips `-t 6 -an` + `libx264 -crf 27` / `libvpx-vp9 -crf 38 -b:v 0`, escala `-2:720` o `540:-2`.
 - Nota: CV Analyzer (puerto 8000) y Legal RAG (puerto 8501) pueden quedar
   corriendo en segundo plano durante las capturas; cerrarlos al terminar.
+- 2026-11-24 — Fase 5: rendimiento móvil de 71 → 83 con fuentes sin bloquear,
+  Shippori subconjuntada (de unos 300 KB a 100 KB), grano de papel en PNG en
+  vez de feTurbulence y pósters diferidos. Para llegar a 90 haría falta SSG
+  (prerender del HTML); no se hizo por el costo (la intro y la detección de
+  idioma complican la hidratación). Se puede retomar si importa.

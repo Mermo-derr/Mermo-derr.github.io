@@ -64,7 +64,7 @@ export function Hero() {
             <span data-reveal="kanji" className="vertical-jp text-3xl font-extrabold">
               <Chars text="創造的開発者" />
             </span>
-            <span className="text-red font-display text-xl">日本</span>
+            <span className="text-red font-display text-xl font-bold">日本</span>
           </div>
           <span data-hero="stamp" className="hanko absolute -bottom-6 -left-12 rotate-[-8deg] text-2xl">
             <span className="vertical-jp tracking-normal">アラン</span>
