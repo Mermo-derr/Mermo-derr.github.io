@@ -179,9 +179,11 @@ Comandos (desde `web/`): `npm run dev` (puerto 5173), `npm run build` y `npm run
 ## 8. Protocolo de iteración
 
 1. Leer este plan y el Registro.
-2. Tomar la siguiente casilla pendiente, o lo que pida Alan.
-3. Verificar: `npm run build` en `web/` y revisar en Chrome (localhost:5173).
-4. Marcar la casilla y anotar en el Registro las decisiones o los cambios de
+2. **Commit del estado actual antes de cambiar nada** (pedido de Alan). Mensajes
+   en español. `CV_*.pdf` queda fuera de git (tiene el teléfono).
+3. Tomar la siguiente casilla pendiente, o lo que pida Alan.
+4. Verificar: `npm run build` en `web/` y revisar en Chrome (localhost:5173).
+5. Marcar la casilla y anotar en el Registro las decisiones o los cambios de
    alcance.
 
 ## 9. Registro

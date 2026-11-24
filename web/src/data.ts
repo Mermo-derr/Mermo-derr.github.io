@@ -43,6 +43,7 @@ export const projects: Project[] = [
     name: 'Legal RAG Assistant',
     stack: ['LangChain', 'Gemini', 'ChromaDB', 'Streamlit'],
     repo: 'https://github.com/Mermo-derr/asistente_legal_RAG',
+    image: '/img/legal-rag.webp',
   },
   {
     id: 'multiuserChat',
@@ -55,6 +56,7 @@ export const projects: Project[] = [
     name: 'Draft Advisor',
     stack: ['Python', 'Pydantic', 'LCU API', 'pytest'],
     repo: 'https://github.com/Mermo-derr/draft-advisor',
+    image: '/img/draft-advisor.webp',
     wip: true,
   },
 ]
