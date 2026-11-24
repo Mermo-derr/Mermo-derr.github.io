@@ -35,12 +35,13 @@ export function Nav() {
         <button
           type="button"
           onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-          aria-label={t.nav.langLabel}
+          title={t.nav.langLabel}
           className="label border-paper/30 hover:border-paper ml-auto border px-3 py-1 md:ml-0"
         >
           <span className={lang === 'es' ? 'text-paper' : 'text-paper/50'}>ES</span>
           <span className="text-paper/50"> / </span>
           <span className={lang === 'en' ? 'text-paper' : 'text-paper/50'}>EN</span>
+          <span className="sr-only"> — {t.nav.langLabel}</span>
         </button>
         <button
           type="button"

@@ -20,6 +20,8 @@ export function Projects() {
               {p.image ? (
                 <img
                   src={p.image}
+                  srcSet={`${p.image.replace('.webp', '-640.webp')} 640w, ${p.image} 1280w`}
+                  sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
                   alt={p.name}
                   loading="lazy"
                   className="size-full object-cover object-top grayscale-[35%] transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
