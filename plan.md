@@ -174,12 +174,19 @@ LNGaming 5,6 s 1080p · Soyfac intro 5 s 1080p · Liga Box 3D 9,6 s 1080p 57 MB 
 **soyfac1 (5 s) y soyfac2 (15 s) son verticales 1126×2008**: la galería tiene
 que admitir clips 9:16 además de 16:9.
 
-- [ ] Reel: H.264, 1080p (o 720p), objetivo de 10–15 MB, más un póster WebP.
-      Revisar si encaja con la estética
-- [ ] Clips: fragmentos de 4–6 s en bucle sin audio, WebM + MP4, menos de 3 MB
-      cada uno, con póster
-- [ ] Galería con reproducción al hover o al entrar en pantalla y carga
-      diferida (`preload="none"`)
+Salida en `web/public/video/` (comandos ffmpeg: ver Registro).
+
+- [x] Reel: `reel.mp4` H.264 1080p, CRF 24 con tope de 2,6 Mbps, AAC 128k,
+      faststart → **7,5 MB**. Póster `reel-poster.webp` (9,5 s). Es muy colorido
+      (synthwave/neón): se muestra dentro de un marco negro tipo pantalla, así
+      convive con el papel. Alan decide si queda
+- [x] Clips (6 s máx., sin audio, 720p; verticales a 540 de ancho): WebM VP9
+      (CRF 38) + MP4 H.264 (CRF 27) + póster WebP. 0,1–0,6 MB cada uno.
+      GM Publicidad desde el segundo 2; el resto desde el inicio
+- [x] Galería: 4 horizontales en 2×2 y 2 verticales al lado; reproducción al
+      pasar el cursor (táctil: al estar visible), `preload="none"`, datos en
+      `data.ts` (`clips`, `reel`)
+- Nota: el reel muestra el logo de Overwatch (trabajo de fan) y la firma "Derrha"
 
 ### Fase 5 — Pulido
 - [ ] Responsive (360 px, 768 px, 1280 px y más)
@@ -216,5 +223,8 @@ que admitir clips 9:16 además de 16:9.
   proyecto, sin enlace.
 - Nota: si Vite sirve un módulo vacío tras escribir archivos, reiniciar
   `npm run dev` (pasó una vez con `App.tsx`).
+- 2026-11-24 — Fase 4, comandos ffmpeg usados:
+  reel `-c:v libx264 -preset slow -crf 24 -maxrate 2.6M -bufsize 5.2M -c:a aac -b:a 128k -movflags +faststart`;
+  clips `-t 6 -an` + `libx264 -crf 27` / `libvpx-vp9 -crf 38 -b:v 0`, escala `-2:720` o `540:-2`.
 - Nota: CV Analyzer (puerto 8000) y Legal RAG (puerto 8501) pueden quedar
   corriendo en segundo plano durante las capturas; cerrarlos al terminar.

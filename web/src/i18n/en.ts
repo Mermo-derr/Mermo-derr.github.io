@@ -66,7 +66,7 @@ export const en: Dict = {
     title: 'Motion',
     reel: 'Reel',
     clips: 'Pieces',
-    soon: 'Coming soon',
+    hint: 'Hover over a piece to play it.',
   },
   contact: {
     title: 'Contact',

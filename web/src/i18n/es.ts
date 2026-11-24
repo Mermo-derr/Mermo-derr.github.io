@@ -1,4 +1,4 @@
-// Textos en español. `en.ts` debe tener exactamente las mismas claves.
+﻿// Textos en español. `en.ts` debe tener exactamente las mismas claves.
 export const es = {
   meta: {
     title: 'Alan Mermolia — Creative Developer',
@@ -64,7 +64,7 @@ export const es = {
     title: 'Motion',
     reel: 'Reel',
     clips: 'Piezas',
-    soon: 'Próximamente',
+    hint: 'Pasa el cursor sobre una pieza para reproducirla.',
   },
   contact: {
     title: 'Contacto',
