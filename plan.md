@@ -16,7 +16,7 @@ animaciones siguen la misma línea visual.
 |---|---|
 | Título | Creative Developer |
 | Público | Técnicos de selección (recruiters IT) |
-| Idiomas | Español e inglés con selector (por defecto: idioma del navegador; se guarda en `localStorage`) |
+| Idiomas | Español e inglés. **Se elige en la intro** la primera vez; después, selector del nav. Se guarda en `localStorage` solo cuando el visitante elige (`hasChosenLang()` en `src/i18n/index.tsx`) |
 | Estética | **Pergamino japonés editorial.** Referencia: Dribbble "Japanese history // Website" (BL/S, shot 21659793). Se toma la estética, no la distribución: papel beige con grano y pliegues, tinta negra, rojo como único acento, líneas finas, anotaciones chicas en mayúsculas con japonés entre paréntesis, columnas negras con kanji vertical, sello hanko, cintas negras con texto, números en círculo rojo. **Sin efectos shōnen** |
 | Mascota | No |
 | Tema | **Claro** (papel). Bloques negros puntuales para contraste. El nav y el footer negros hacen de varillas del pergamino |
@@ -95,7 +95,11 @@ Portfolio/
 
 Todo se mueve como tinta y papel, nunca como cómic:
 - **Intro:** el pergamino se desenrolla (máscara vertical desde el centro, unos
-  2 s), cae el sello rojo y aparece el nombre. Botón "Saltar". Una vez por sesión.
+  2 s), cae el sello rojo y aparece el nombre. **Si el visitante todavía no
+  eligió idioma, la intro termina con los botones Español / English** (el
+  detectado por el navegador resaltado y con foco) y el telón sube al elegir.
+  "Saltar" lleva directo a la elección. Con idioma ya elegido, la intro corre
+  sola una vez por sesión. Con reduce-motion y sin idioma: elección sin animación.
 - **Entrada de sección:** las líneas finas se dibujan de izquierda a derecha, el
   título se revela con una máscara como trazo de pincel y el número rojo "sella"
   (escala 1,3 → 1 con opacidad).
@@ -254,3 +258,5 @@ Salida en `web/public/video/` (comandos ffmpeg: ver Registro).
 - 2026-11-24 — Fase 6: publicado en https://mermo-derr.github.io/. `gh` se
   instaló con winget y Alan inició sesión (con el scope `workflow`, necesario
   para pushear el workflow). Para publicar cambios basta con `git push`.
+- 2026-11-26 — Pedido de Alan: la intro sirve para elegir el idioma (así la
+  animación tiene una utilidad). El idioma detectado ya no se guarda solo.

@@ -6,6 +6,7 @@ export const es = {
   },
   intro: {
     skip: 'Saltar',
+    choose: 'Elige idioma · Choose language',
   },
   nav: {
     about: 'Sobre mí',

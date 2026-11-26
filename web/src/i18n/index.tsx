@@ -7,20 +7,30 @@ export type Lang = 'es' | 'en'
 const dicts: Record<Lang, Dict> = { es, en }
 const STORAGE_KEY = 'lang'
 
-function initialLang(): Lang {
+function savedLang(): Lang | null {
   const saved = localStorage.getItem(STORAGE_KEY)
-  if (saved === 'es' || saved === 'en') return saved
-  return navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en'
+  return saved === 'es' || saved === 'en' ? saved : null
 }
+
+function initialLang(): Lang {
+  return savedLang() ?? (navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en')
+}
+
+// El idioma solo se guarda cuando el visitante lo elige (intro o selector del nav).
+// Sin elección guardada, la intro pide elegirlo.
+export const hasChosenLang = () => savedLang() !== null
 
 const I18nContext = createContext<{ lang: Lang; t: Dict; setLang: (l: Lang) => void } | null>(null)
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>(initialLang)
+  const [lang, setLangState] = useState<Lang>(initialLang)
   const t = dicts[lang]
+  const setLang = (l: Lang) => {
+    localStorage.setItem(STORAGE_KEY, l)
+    setLangState(l)
+  }
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, lang)
     document.documentElement.lang = lang
     document.title = t.meta.title
     document.querySelector('meta[name="description"]')?.setAttribute('content', t.meta.description)

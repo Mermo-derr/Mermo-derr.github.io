@@ -8,6 +8,7 @@ export const en: Dict = {
   },
   intro: {
     skip: 'Skip',
+    choose: 'Choose language · Elige idioma',
   },
   nav: {
     about: 'About',
