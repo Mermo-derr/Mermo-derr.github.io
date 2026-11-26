@@ -12,7 +12,7 @@ export type Project = {
   stack: string[]
   repo?: string
   site?: string
-  image?: string // /img/<id>.webp, se agrega con las capturas (Fase 2)
+  image?: string 
   wip?: boolean
 }
 
@@ -28,7 +28,7 @@ export const projects: Project[] = [
   {
     id: 'river',
     name: 'River Plate',
-    stack: ['PHP', 'MySQL', 'Docker', 'HTML', 'CSS'],
+    stack: ['PHP', 'MySQL', 'Docker', 'React'],
     image: '/img/river.webp',
   },
   {
